@@ -9,6 +9,7 @@ A secure authentication system built with **Spring Boot** and **Spring Security*
 * JWT (JSON Web Token) Authentication
 * Password Encryption using BCrypt
 * Role-Based Authorization (USER / ADMIN)
+* Refresh Token Support
 * Spring Security Integration
 * RESTful APIs
 * MySQL Database Integration
@@ -100,6 +101,42 @@ Response
 ```
 
 ---
+### Refresh Token
+
+```http
+POST /refresh-token
+```
+
+Request Body
+
+```json
+{
+  "refreshToken": "REFRESH_JWT_TOKEN"
+}
+```
+
+Response
+
+```json
+{
+  "accessToken": "NEW_ACCESS_JWT_TOKEN",
+  "refreshToken": "NEW_REFRESH_JWT_TOKEN",
+  "user": {
+    "id": 1,
+    "name": "Rohit Verma",
+    "email": "rohit@example.com",
+    "role": "ROLE_USER"
+  }
+}
+```
+
+Response (401 Unauthorized)
+
+```json
+{
+  "message": "Invalid refresh token"
+}
+```
 
 ### Get All Users (Protected)
 
@@ -158,7 +195,6 @@ mvn spring-boot:run
 
 ## 📌 Future Improvements
 
-* Refresh Token Support
 * Email Verification
 * Forgot Password
 * Password Reset
