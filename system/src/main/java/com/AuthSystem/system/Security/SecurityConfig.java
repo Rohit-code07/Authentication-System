@@ -22,6 +22,7 @@ private JwtAuthenticationFilter jwtAuthenticationFilter;
      http.csrf(csrf -> csrf.disable());
      http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.
              requestMatchers(HttpMethod.POST,"/login","/register").permitAll().
+             requestMatchers(HttpMethod.POST,"/refresh-token").permitAll().
              anyRequest()
              .authenticated());
      http.addFilterBefore((Filter) jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

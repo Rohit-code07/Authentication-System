@@ -2,6 +2,8 @@ package com.AuthSystem.system.Security;
 
 
 import com.AuthSystem.system.Entity.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,7 +14,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
+@Getter
+@Setter
 public class CustomUserDetail implements UserDetails {
 
 private User user;
